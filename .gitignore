@@ -27,3 +27,15 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Hidden files/folders by default
+.*
+!.gitignore
+!.gitattributes
+!.editorconfig
+!.env.example
+!.npmrc
+!.prettierignore
+!.prettierrc
+!.github/
+!.github/**
