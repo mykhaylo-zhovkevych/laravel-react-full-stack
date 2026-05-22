@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #1f2937;
+    background: #f3f4f6;
+}
+
+a {
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+input {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #ffffff;
+    outline: none;
+}
+
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn,
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: #ffffff;
+    background: #2563eb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover,
+button:hover {
+    background: #1d4ed8;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-add {
+    background: #16a34a;
+}
+
+.btn-edit {
+    background: #f59e0b;
+}
+
+.btn-delete {
+    background: #dc2626;
+}
+
+.btn-logout {
+    color: #374151;
+    background: transparent;
+    text-decoration: none;
+}
+
+.btn-logout:hover {
+    background: #e5e7eb;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.card {
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.alert {
+    padding: 12px 14px;
+    border-radius: 6px;
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+th {
+    background: #f9fafb;
+    font-weight: 700;
+}
+
+#defaultLayout {
+    display: flex;
+    min-height: 100vh;
+}
+
+#defaultLayout aside {
+    width: 240px;
+    padding: 20px;
+    background: #111827;
+}
+
+#defaultLayout aside a {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 6px;
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+#defaultLayout aside a:hover {
+    color: #ffffff;
+    background: #374151;
+}
+
+#defaultLayout .content {
+    flex: 1;
+    min-width: 0;
+}
+
+#defaultLayout header {
+    height: 72px;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+#defaultLayout main {
+    padding: 28px;
+}
+
+#guestLayout {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(20, 184, 166, 0.08)),
+        #f8fafc;
+}
+
+.login-signup-form {
+    width: 100%;
+    max-width: 430px;
+}
+
+.login-signup-form .form {
+    padding: 32px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12);
+}
+
+.login-signup-form form {
+    display: grid;
+    gap: 18px;
+}
+
+.login-signup-form label {
+    display: block;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.auth-header {
+    margin-bottom: 26px;
+    text-align: center;
+}
+
+.auth-header h1 {
+    margin-top: 12px;
+    color: #111827;
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.auth-header p {
+    margin-top: 10px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.auth-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #0f766e;
+    background: #ccfbf1;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.login-signup-form .btn {
+    min-height: 46px;
+    margin-top: 4px;
+    font-weight: 700;
+}
+
+.login-signup-form .message {
+    margin-top: 2px;
+    color: #6b7280;
+    text-align: center;
+}
+
+.login-signup-form .message a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-signup-form .message a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    #defaultLayout {
+        flex-direction: column;
+    }
+
+    #defaultLayout aside {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+    }
+
+    #defaultLayout main {
+        padding: 18px;
+    }
+}
