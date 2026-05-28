@@ -1,12 +1,38 @@
 import {Link} from 'react-router-dom';
-import {useRef} from 'react';
+import {useRef, useState} from 'react';
+import axiosClient from '../axios-client.js';
+import {useStateContext} from '../context/StateContext.js';
 
 export default function Login() {
-    const usernameRef = useRef();
+    const emailRef = useRef();
     const passwordRef = useRef();
+    const [errors, setErrors] = useState(null);
+    const {setUser, setToken} = useStateContext();
 
     const onSubmit = (ev) => {
         ev.preventDefault();
+
+        const payload = {
+            email: emailRef.current.value,
+            password: passwordRef.current.value,
+        };
+
+        setErrors(null);
+
+        axiosClient.post('/login', payload)
+            .then(({data}) => {
+                setUser(data.user);
+                setToken(data.token);
+            })
+            .catch((err) => {
+                const response = err.response;
+
+                if (response && response.status === 422) {
+                    setErrors(response.data.errors);
+                } else if (response && response.data.message) {
+                    setErrors({email: [response.data.message]});
+                }
+            });
     };
 
     return (
@@ -20,9 +46,17 @@ export default function Login() {
             </div>
 
             <form onSubmit={onSubmit}>
+                {errors && (
+                    <div className="alert">
+                        {Object.keys(errors).map((key) => (
+                            <p key={key}>{errors[key][0]}</p>
+                        ))}
+                    </div>
+                )}
+
                 <label>
-                    Username
-                    <input ref={usernameRef} name="username" placeholder="Enter your username" />
+                    Email
+                    <input ref={emailRef} type="email" name="email" placeholder="you@example.com" />
                 </label>
 
                 <label>

@@ -1,19 +1,25 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {StateContext} from './StateContext.js';
 
+// localStorage keyname
+const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN';
+//const  TEMP_ACCESS_TOKEN = 123;
 export const ContextProvider = ({children}) => {
     const [user, setUser] = useState({
         name: 'Mike'
     });
     // raw/internal setter
-    const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
+    const [token, _setToken] = useState(
+        localStorage.getItem(ACCESS_TOKEN_KEY),
+        //localStorage.getItem(ACCESS_TOKEN_KEY) || TEMP_ACCESS_TOKEN,
+    );
 
     const setToken = (token) => {
         _setToken(token);
         if (token) {
-            localStorage.setItem("ACCESS_TOKEN", token);
+            localStorage.setItem(ACCESS_TOKEN_KEY, token);
         } else {
-            localStorage.removeItem("ACCESS_TOKEN");
+            localStorage.removeItem(ACCESS_TOKEN_KEY);
         }
     };
 
